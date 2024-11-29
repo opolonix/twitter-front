@@ -1,0 +1,78 @@
+.title {
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 20px;
+    font-weight: 600;
+
+}
+
+.subtitle {
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 12px;
+    margin-bottom: 10px;
+
+    display: flex;
+    justify-content: space-between;
+}
+.subtitle span:last-child {
+    font-size: 16px;
+}
+input {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--buttonActive);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: 400;
+    height: 50px;
+}
+
+.selection {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    height: 50px;
+}
+.selection button {
+    width: 100%;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: var(--buttonActive);
+    border: 1px solid var(--buttonActive);
+    color: #fff;
+}
+.selection button.active {
+    background-color: var(--accent);
+    border: 1px solid #FFFFFF33;
+}
+.result {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.result .item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 400;
+    color: #858181;
+}
+.result .item span:last-child {
+    color: #ffffff;
+}
+
+input[type=submit] {
+    border-radius: 100px;
+    background-color: var(--accent);
+    border: 1px solid #FFFFFF33;
+    height: 60px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+}

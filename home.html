@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <title>Raid</title>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="commonly.css">
+    <link rel="stylesheet" href="home.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <img src="source/logo.png" alt="" class="logo">
+        </header>
+        <main>
+            <div class="title">Select option</div>
+            <form>
+                <div class="subtitle"><span>Number of actions</span><span>x100</span></div>
+                <div class="progress">
+
+                </div>
+                <div class="subtitle">Link to project</div>
+                <input type="text" placeholder="Your link here">
+                <div class="subtitle">Action type</div>
+                <div class="action-type selection">
+                    <button class="active">Like</button>
+                    <button>Comment</button>
+                    <button>Retweet</button>
+                </div>
+                <div class="subtitle">Token name (optional)</div>
+                <input type="text" placeholder="Your token name here">
+                <div class="subtitle">Payment method</div>
+                <div class="pay-methods selection">
+                    <button class="active">TON</button>
+                    <button>Stars</button>
+                    <button>XRaid Token<br>10% OFF</button>
+                </div>
+                <div class="result">
+                    <div class="item"><span>Total to pay</span><span>0 TON</span></div>
+                    <div class="item"><span>Number of actions</span><span>x100</span></div>
+                    <div class="item"><span>Action type</span><span>Like</span></div>
+                </div>
+                <input type="submit" value="Pay">
+            </form>
+        </main>
+        <footer>
+            <nav>
+                <ul>
+                    <li><img src="source/chat.svg" alt=""></li>
+                    <li onclick="window.location.href = '/home.html'"><img src="source/home-active.svg" alt=""></li>
+                    <li onclick="window.location.href = '/index.html'" class="active"><img src="source/lists.svg" alt=""></li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
+    <script src="tg.js"></script>
+</body>
+</html>
