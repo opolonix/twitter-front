@@ -1,6 +1,3 @@
-log = console.log;
-
-
 document.querySelectorAll(".radio").forEach(el => {
     el.addEventListener("click", e => {
         let index = el.attributes.index.value;
