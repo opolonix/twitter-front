@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <title>Raid</title>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="commonly.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <style>
+        .wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        .message {
+            opacity: 0;
+            color: #fff;
+            text-align: center;
+            width: 200px;
+        }
+    </style>
+    <div class="wrapper">
+        <img src="source/logo.png" alt="" class="logo">
+        <div class="message">Упс, при попытке авторизации чтото пошло не так...</div>
+    </div>
+    <script src="tg.js"></script>
+    <script>
+        fetch("/auth", {method: "POST", body: wv.initParams.tgWebAppData}).then(
+           answer => answer.json().then(data => {
+               if (answer.status == 200) window.location.href = "/"
+               else document.querySelector(".message").style.opacity = 0
+           })
+        )
+    </script>
+</body>
+</html>
