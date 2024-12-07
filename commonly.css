@@ -18,8 +18,13 @@ html, body {
 
     color: #fff;
     font-family: "Inter", serif;
+    
 }
 
+body::-webkit-scrollbar {
+    display: none;
+  }
+  
 
 .bg {
     position: absolute;
@@ -38,8 +43,8 @@ html, body {
 .wrapper::after {
     content: '';
     position: absolute;
-    width: 100vw;
-    height: 100vh;
+    width: 100svw;
+    height: 100svh;
     overflow: hidden;
     top: 0;
     left: 0;

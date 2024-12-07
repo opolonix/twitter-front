@@ -47,6 +47,7 @@ input {
     font-weight: 600;
     background-color: var(--buttonActive);
     border: 1px solid var(--buttonActive);
+    transition-duration: .1s;
     color: #fff;
 }
 .selection button.active {
