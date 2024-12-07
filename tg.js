@@ -5,9 +5,10 @@ const log = console.log;
 tg.headerColor = "#1f0505";
 tg.bottomBarColor = "#161616";
 
-if (history.length != 0) {
-    tg.BackButton.show();
-    BackButton.onClick(() => {
-        history.back();
-    });
-}
+// log(tg)
+// if (history.length != 0) {
+//     tg.BackButton.show();
+//     BackButton.onClick(() => {
+//         history.back();
+//     });
+// }

@@ -2,8 +2,8 @@
 
 
 html {
-    --buttonAccent: #161616;
-    --buttonActive: #212121;
+    --buttonAccent: #161616af;
+    --buttonActive: #21212171;
     --paramsIndex: 0;
     --accent: #CA1313;
     --maxWidth: 700px;
@@ -23,15 +23,6 @@ html, body {
 
 body::-webkit-scrollbar {
     display: none;
-  }
-  
-
-.bg {
-    position: absolute;
-    max-width: 100%;
-    max-height: 100%;
-    overflow: hidden;
-    z-index: 0;
 }
 
 .wrapper {
@@ -42,7 +33,7 @@ body::-webkit-scrollbar {
 }
 .wrapper::after {
     content: '';
-    position: absolute;
+    position: fixed;
     width: 100svw;
     height: 100svh;
     overflow: hidden;
