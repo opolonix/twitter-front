@@ -18,19 +18,19 @@ let draggeble = false;
 progress.addEventListener("touchstart", e => handleProgress(e.touches[0].clientX))
 progress.addEventListener("touchmove", e => handleProgress(e.touches[0].clientX))
 progress.addEventListener("mousemove", e => {
-    if (draggeble) handleProgress(e.screenX);
+    if (draggeble) handleProgress(e.pageX);
 })
 progress.addEventListener("mousedown", e => {
     draggeble = true;
-    handleProgress(e.screenX);
+    handleProgress(e.pageX);
 })
 progress.addEventListener("mouseup", e => draggeble = false)
-progress.addEventListener("mouseout", e => draggeble = false)
 
 document.querySelectorAll(".selection").forEach(selects => {
     let buttons = selects.querySelectorAll("button");
     buttons.forEach(button => {
         button.addEventListener("click", e => {
+            e.preventDefault()
             buttons.forEach(b => b.classList.remove("active"))
             button.classList.add("active")
         })

@@ -30,6 +30,7 @@ body::-webkit-scrollbar {
     background: linear-gradient(0deg, #030303 0%, #1F0505 100%);
     display: flex;
     flex-direction: column;
+    padding-bottom: 60px;
 }
 .wrapper::after {
     content: '';
@@ -64,6 +65,10 @@ flex {
 footer {
     padding: 10px 10px 20px;
     background-color: var(--buttonAccent);
+    position: fixed;
+    bottom: 0;
+    backdrop-filter: blur(7px);
+    width: 100%;
     z-index: 3 !important;
 
     max-width: var(--maxWidth);
@@ -118,8 +123,9 @@ main {
         border-radius: 25px;
 
         width: calc(50svw - 40px);
-        margin: 0 auto;
-        margin-bottom: 15px;
+        bottom: 15px;
+        left: 40px;
+        transform: translateX(50%);
         padding: 10px;
     }
     main {

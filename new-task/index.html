@@ -18,7 +18,7 @@
             <div class="title">Select option</div>
             <form>
                 <div class="subtitle"><span>Number of actions</span><span>x100</span></div>
-                <div class="progress" style="--progress: calc(100/3*2);">
+                <div class="progress">
                     <div class="line"></div>
                     <div class="filled"></div>
                     <div class="dot"></div>
@@ -30,25 +30,25 @@
                     </div>
                 </div>
                 <div class="subtitle">Link to project</div>
-                <input type="text" placeholder="Your link here">
+                <input type="text" placeholder="Your link here" oninput="setConfigOption('payment_token', this.value == '' ? null : this.value)">
                 <div class="subtitle">Action type</div>
                 <div class="action-type selection">
-                    <button class="active">Like</button>
-                    <button>Comment</button>
-                    <button>Retweet</button>
+                    <button onclick="setConfigOption('action_type', 'like')" class="like-button">Like</button>
+                    <button onclick="setConfigOption('action_type', 'comment')" class="comment-button">Comment</button>
+                    <button onclick="setConfigOption('action_type', 'retweet')" class="retweet-button">Retweet</button>
                 </div>
                 <div class="subtitle">Token name (optional)</div>
                 <input type="text" placeholder="Your token name here">
                 <div class="subtitle">Payment method</div>
                 <div class="pay-methods selection">
-                    <button class="active">TON</button>
-                    <button>Stars</button>
-                    <button>XRaid<br>10% OFF</button>
+                    <button onclick="setConfigOption('payment_method', 'ton')" class="ton-button">TON</button>
+                    <button onclick="setConfigOption('payment_method', 'stars')" class="stars-button">Stars</button>
+                    <button onclick="setConfigOption('payment_method', 'raid')" class="raid-button">XRaid<br>10% OFF</button>
                 </div>
                 <div class="result">
-                    <div class="item"><span>Total to pay</span><span>0 TON</span></div>
-                    <div class="item"><span>Number of actions</span><span>x100</span></div>
-                    <div class="item"><span>Action type</span><span>Like</span></div>
+                    <div class="item"><span>Total to pay</span><span>0 <span class="action-pay">TON</span></div>
+                    <div class="item"><span>Number of actions</span><span>x<span class="action-number">100</span></span></div>
+                    <div class="item"><span>Action type</span><span class="action-type">Like</span></div>
                 </div>
                 <input type="submit" value="Pay">
             </form>
@@ -65,5 +65,49 @@
     </div>
     <script src="tg.js"></script>
     <script src="new-task/tscript.js"></script>
+    <script>
+        let config = {
+            actions: 0,
+            action_type: "like",
+            payment_token: null,
+            payment_method: "ton",
+            progress: 0
+        }
+        const annotates = {
+            "like": "Like",
+            "comment": "Comment",
+            "retweet": "Retweet",
+            "ton": "TON",
+            "stars": "Stars",
+            "raid": "XRaid token",
+        }
+        const action_type = document.querySelector(".action-type")
+        const pay_method = document.querySelector(".pay-methods")
+
+        const setConfigOption = (key, value) => {
+            config[key] = value
+            loadInfo()
+        }
+        const loadInfo = () => {
+            document.querySelector("span.action-pay").innerText = annotates[config.payment_method]
+            document.querySelector("span.action-type").innerText = annotates[config.action_type]
+            document.querySelector("span.action-number").innerText = config.actions
+        }
+
+        requestAnimationFrame(() => {
+            document.querySelectorAll("button").forEach(el => el.classList.remove("active"))
+            log(`.${config.action_type}-button`)
+            document.querySelector(`.${config.action_type}-button`).classList.add("active")
+            document.querySelector(`.${config.payment_method}-button`).classList.add("active")
+
+            handleProgress(config.progress)
+        })
+
+        loadInfo()
+
+        document.querySelector("form").addEventListener("submit", e => {
+            log(config)
+        })
+    </script>
 </body>
 </html>
