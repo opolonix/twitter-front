@@ -113,6 +113,10 @@ input[type=submit] {
     z-index: 4;
     cursor: pointer;
 }
+
+.progress.base .dot {
+    transition-duration: .2s;
+}
 .point {
     position: absolute;
     height: 26px;
@@ -121,6 +125,7 @@ input[type=submit] {
     border-radius: 3px;
     background-color: var(--buttonActive);
     transform: translateX(-3px);
+    backdrop-filter: blur(8px);
 }
 .point.active {
     background-color: var(--accent);
